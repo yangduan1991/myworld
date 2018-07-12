@@ -1,4 +1,4 @@
-package bounce;
+package com.yangduan.ionian.concurrent.bounce;
 
 import java.awt.geom.*;
 
