@@ -1,2 +1,4 @@
 include (':lydian:spring')
+findProject(':lydian:spring')?.name = 'spring'
 include ('ionian')
+findProject(':ionian')?.name = 'ionian'
