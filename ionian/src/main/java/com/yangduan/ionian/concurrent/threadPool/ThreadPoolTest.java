@@ -66,6 +66,7 @@ class MatchCounter implements Callable<Integer>
       this.pool = pool;
    }
 
+   @Override
    public Integer call()
    {
       count = 0;
@@ -74,7 +75,7 @@ class MatchCounter implements Callable<Integer>
          File[] files = directory.listFiles();
          List<Future<Integer>> results = new ArrayList<>();
 
-         for (File file : files)
+         for (File file : files) {
             if (file.isDirectory())
             {
                MatchCounter counter = new MatchCounter(file, keyword, pool);
@@ -85,8 +86,9 @@ class MatchCounter implements Callable<Integer>
             {
                if (search(file)) count++;
             }
+         }
 
-         for (Future<Integer> result : results)
+         for (Future<Integer> result : results) {
             try
             {
                count += result.get();
@@ -95,6 +97,7 @@ class MatchCounter implements Callable<Integer>
             {
                e.printStackTrace();
             }
+         }
       }
       catch (InterruptedException e)
       {

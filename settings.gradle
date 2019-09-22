@@ -1,4 +1,7 @@
-include (':lydian:spring')
-findProject(':lydian:spring')?.name = 'spring'
-include ('ionian')
-findProject(':ionian')?.name = 'ionian'
+List projects = [
+        ':dorian',
+        ':ionian',
+        ':lydian',
+]
+rootProject.name = 'myworld'
+include projects.toArray(new String[0])
